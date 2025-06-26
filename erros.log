@@ -1,0 +1,31 @@
+[2025-06-24 20:29:37] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'cadastro'
+[2025-06-25 00:38:15] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'php'
+[2025-06-25 00:38:50] PDO Error: SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+[2025-06-25 00:40:12] PDO Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for DESKTOP-EM04SP2 failed: Este host n�o � conhecido. 
+[2025-06-26 01:40:47] PDO Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for DESKTOP-EM04SP2 failed: Este host n�o � conhecido. 
+[2025-06-26 01:41:37] PDO Error: SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+[2025-06-26 01:52:29] PDO Error: SQLSTATE[HY000] [2002] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+[2025-06-26 01:52:33] PDO Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for DB_MUKA failed: Este host n�o � conhecido. 
+[2025-06-26 02:09:47] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:10:10] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:10:12] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:10:13] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:10:13] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:09] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:10] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:10] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:10] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:10] PDO Error: SQLSTATE[HY000] [1049] Unknown database 'db_muka'
+[2025-06-26 02:11:22] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
+[2025-06-26 02:11:23] PDO Error: SQLSTATE[HY000] [1044] Access denied for user 'murillo'@'%' to database 'php'
