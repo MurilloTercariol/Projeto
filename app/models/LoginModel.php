@@ -10,15 +10,13 @@ class Usuario
         );
     }
 
-    public static function inserir(string $u, string $e, string $s): void
+    public static function logar(string $u, string $s): void
     {
         $pdo = self::conectar();
-        $sql = "INSERT INTO usuarios (username,email,senha)
-                VALUES (:u,:e,:s)";
+        $sql = "SELECT * FROM usuarios WHERE username='$u' AND senha='$senha';
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':u' => $u,
-            ':e' => $e,
             ':s' => password_hash($s, PASSWORD_DEFAULT)
         ]);
     }
