@@ -1,4 +1,5 @@
 <?php
+
 class Usuario
 {
     private static function conectar(): PDO
@@ -10,14 +11,21 @@ class Usuario
         );
     }
 
-    public static function logar(string $u, string $s): void
+    public static function autenticar(string $username, string $senha): ?array
     {
         $pdo = self::conectar();
-        $sql = "SELECT * FROM usuarios WHERE username='$u' AND senha='$senha';
+
+        $sql = "SELECT * FROM usuarios WHERE username = :u LIMIT 1";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':u' => $u,
-            ':s' => password_hash($s, PASSWORD_DEFAULT)
-        ]);
-    }
+        $stmt->execute([':u' => $username]);
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($senha, $user['senha'])) {
+            return $user;
+        }
+
+        return null;
+    }   
 }
+
