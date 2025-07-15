@@ -28,4 +28,3 @@ class Usuario
         return null;
     }   
 }
-
