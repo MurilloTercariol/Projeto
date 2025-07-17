@@ -21,7 +21,7 @@ echo "<a href='../config/logout.php'>Sair</a>";
                 <br>
 
                 <label for="descricao">Descrição:</label><br>
-                <textarea  name="descricao" id="descricao" row="4"></textarea>
+                <textarea  name="descricao" id="descricao" row="4" required></textarea>
                 <br>
 
                 <label for="prazo">Para entregar:</label><br>

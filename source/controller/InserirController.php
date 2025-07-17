@@ -14,7 +14,32 @@
             $prazo = !empty(trim($_POST['prazo'])) ? trim($_POST['prazo']) :NULL;
 
             $erros = [];
+
+            if ($titulo === '') $erros[] = 'Obrigatório o título da tarefa';
+            if ($titulo === '') $erros[] = 'Obrigatório o descrição da tarefa';
             
+            if($erros) {
+                echo implode('<br>', $erros);
+            }
+            
+            try {
+                Tarefa::CriarTarefa($user_id, $titulo, $descricao, $prazo);
+                echo $_SESSION['usario'] . ', Sua tarefa foi criada com sucesso!';
+            } catch (PDOException $ex) {
+                if($ex->getCode() == 23000){
+                     echo 'Erro:' . $ex->getCode();
+                } else {
+                    echo 'Erro: ' . $ex->getCode();
+                }   
+            }
         }
     }
     
+    $ctrl = new InserirController();
+
+   
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $ctrl->InserirTarefa();
+    } else {
+    echo 'Use o formulário para enviar';
+    }
