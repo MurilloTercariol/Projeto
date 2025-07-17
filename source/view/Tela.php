@@ -11,17 +11,31 @@ echo "<a href='../config/logout.php'>Sair</a>";
     <title>Agenda</title>
 </head>
 <body>
+    <h1>Criar Nova Tarefa</h1>
     <div class="inserir-container">
         <div class="inserir-form">
             <form method="POST" action="../controller/InserirController.php">
 
-                <label>
-                    Insira o Título da Tarefa:
-                    <input type="text" name="titulo" id="titulo" required>
-                </label>
+                <label for="titulo">Título da Tarefa:</label><br>
+                <input type="text" name="titulo" id="titulo" required>
                 <br>
 
+                <label for="descricao">Descrição:</label><br>
+                <textarea  name="descricao" id="descricao" row="4"></textarea>
+                <br>
 
+                <label for="prazo">Para entregar:</label><br>
+                <input type="date" name="prazo" id="prazo">
+                <br>
+
+                <label for="status">Status:</label><br>
+                    <select id="status" name="status">
+                        <option value="a-fazer">A fazer</option>
+                        <option value="em-andamento">Em andamento</option>
+                        <option value="finalizada">Finalizada</option>
+                    </select>
+
+                <button type="submit">Salvar Tarefa</button>
             </form>
         </div>
     </div>

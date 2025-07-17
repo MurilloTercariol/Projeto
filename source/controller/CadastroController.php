@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require '../models/CadastroModel.php';   // <- model certo
+require('../models/CadastroModel.php');   // <- model certo
 
 class UsuarioController
 {
