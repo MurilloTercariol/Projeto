@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($dados) {
         $_SESSION['user_id'] = $dados['id'];
         $_SESSION['username'] = $dados['username'];
-        header('Location: ../view/Tela.php');
+        header('Location: ../view/Principal.php');
         exit;
     }
 

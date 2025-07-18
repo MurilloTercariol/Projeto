@@ -11,16 +11,16 @@
             );
         }
 
-        public static function CriarTarefa($user_id, $titulo, $descricao = null, $prazo = null): void {
+        public static function CriarTarefa($user_id, $titulo, $descricao, $prazo): void {
             $pdo = self::conectar();
-            $sql = ("INSERT INTO tarefas (user_id, titulo, descricao, prazo) VALUES (:user_id, :titulo, :descricao, :prazo");
+            $sql = "INSERT INTO tarefas (user_id, titulo, descricao, prazo) VALUES (:user_id, :titulo, :descricao, :prazo)";
 
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':user_id' => $user_id,
-                'titulo' => $titulo ,
-                'descricao' => $descricao,
-                'prazo' => $prazo 
+                ':titulo' => $titulo ,
+                ':descricao' => $descricao,
+                ':prazo' => $prazo 
             ]);
         }
     }

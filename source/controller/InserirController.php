@@ -1,14 +1,18 @@
 <?php
+    session_start();
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
+    $user_id = $_SESSION['user_id'];
+    var_dump($user_id);
 
+    include('../config/protection.php');
     require('../models/InserirModel.php');
 
     class InserirController
     {
         public function InserirTarefa()
         {
-            $user_id = trim($_POST['user_id'] ?? '');
+            $user_id = $_SESSION['user_id'];
             $titulo = trim($_POST['titulo'] ?? '');
             $descricao = !empty(trim($_POST['descricao'])) ? trim($_POST['descricao']) :NULL;
             $prazo = !empty(trim($_POST['prazo'])) ? trim($_POST['prazo']) :NULL;
@@ -16,7 +20,7 @@
             $erros = [];
 
             if ($titulo === '') $erros[] = 'Obrigatório o título da tarefa';
-            if ($titulo === '') $erros[] = 'Obrigatório o descrição da tarefa';
+            if ($descricao === '') $erros[] = 'Obrigatório o descrição da tarefa';
             
             if($erros) {
                 echo implode('<br>', $erros);
@@ -24,12 +28,14 @@
             
             try {
                 Tarefa::CriarTarefa($user_id, $titulo, $descricao, $prazo);
-                echo $_SESSION['usario'] . ', Sua tarefa foi criada com sucesso!';
+                echo $_SESSION['username'] . ', sua tarefa foi criada com sucesso!';
             } catch (PDOException $ex) {
                 if($ex->getCode() == 23000){
-                     echo 'Erro:' . $ex->getCode();
+                     echo 'Erro: ' .  $ex->getCode() . ', já existe uma tarefa com este título. <br>';
+                     echo "Mensagem de Erro: " . $ex->getMessage() . "<br>";
                 } else {
-                    echo 'Erro: ' . $ex->getCode();
+                    echo 'Erro: ' . $ex->getCode() . '<br>';
+                    echo "Mensagem de Erro: " . $ex->getMessage() . "<br>";
                 }   
             }
         }

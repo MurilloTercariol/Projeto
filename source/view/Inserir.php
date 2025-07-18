@@ -35,7 +35,8 @@ echo "<a href='../config/logout.php'>Sair</a>";
                         <option value="finalizada">Finalizada</option>
                     </select>
 
-                <button type="submit">Salvar Tarefa</button>
+                <button type="submit">Salvar Tarefa</button><br>
+                <a href ="../view/Principal.php">Voltar</a>
             </form>
         </div>
     </div>
