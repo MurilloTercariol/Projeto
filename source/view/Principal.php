@@ -1,9 +1,8 @@
 <?php
 
+include("../config/protection.php");
 include("../config/connection.php");
-
-
-
+require("../models/TarefasModel.php");
 ?>
 
 <!DOCTYPE html>

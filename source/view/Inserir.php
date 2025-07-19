@@ -14,7 +14,7 @@ echo "<a href='../config/logout.php'>Sair</a>";
     <h1>Criar Nova Tarefa</h1>
     <div class="inserir-container">
         <div class="inserir-form">
-            <form method="POST" action="../controller/InserirController.php">
+            <form method="POST" action="../controller/TarefasController.php">
 
                 <label for="titulo">Título da Tarefa:</label><br>
                 <input type="text" name="titulo" id="titulo" required>

@@ -6,7 +6,7 @@
     var_dump($user_id);
 
     include('../config/protection.php');
-    require('../models/InserirModel.php');
+    require('../models/TarefasModel.php');
 
     class InserirController
     {
@@ -48,4 +48,15 @@
         $ctrl->InserirTarefa();
     } else {
     echo 'Use o formulário para enviar';
+    }
+
+    //para nexibir as tarefas
+   
+
+    try{
+        $tarefasPorStatus = Tarefa::ExibirTarefas($user_id);
+
+        require_once("../view/Principal.php");
+    } catch (PDOException $ex) {
+        echo "Erro ao carregar tarefas: " . $ex->getMessage();
     }
