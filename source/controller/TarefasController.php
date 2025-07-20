@@ -1,5 +1,4 @@
 <?php
-    session_start();
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
     $user_id = $_SESSION['user_id'];
@@ -51,10 +50,12 @@
     }
 
     //para nexibir as tarefas
-   
+    require_once("../models/TarefasModel.php");
+
+    $userId = $_SESSION['user_id'];
 
     try{
-        $tarefasPorStatus = Tarefa::ExibirTarefas($user_id);
+        $tarefasPorStatus = Tarefa::ExibirTarefas($userId);
 
         require_once("../view/Principal.php");
     } catch (PDOException $ex) {
