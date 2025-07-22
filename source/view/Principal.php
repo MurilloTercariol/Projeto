@@ -2,8 +2,7 @@
 
 include_once("../config/protection.php");
 include_once("../config/connection.php");
-include_once("../models/TarefasModel.php");
-include_once("../controller/TarefasController.php"); // Este arquivo deve preparar $tarefasPorStatus
+include_once("../controller/ExibirController.php"); // Este arquivo deve preparar $tarefasPorStatus
 
 // NENHUM FOREACH AQUI ANTES DO HTML!
 // O foreach DEVE estar DENTRO do <body> ou onde você quer exibir os itens.

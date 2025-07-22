@@ -29,7 +29,7 @@
             $pdo = self::conectar();
             $sql = "SELECT id, user_id, titulo, descricao, prazo, status FROM tarefas WHERE user_id = :user_id ORDER BY prazo ASC, id DESC";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+            $stmt->bindParam(':user_id', $userID, PDO::PARAM_INT);
             $stmt->execute();
 
             $todasAsTarefas = $stmt->fetchAll(PDO::FETCH_ASSOC);

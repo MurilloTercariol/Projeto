@@ -1,8 +1,7 @@
 <?php
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
-    $user_id = $_SESSION['user_id'];
-    var_dump($user_id);
+
 
     include('../config/protection.php');
     require('../models/TarefasModel.php');
@@ -23,6 +22,7 @@
             
             if($erros) {
                 echo implode('<br>', $erros);
+                return;
             }
             
             try {
@@ -47,17 +47,4 @@
         $ctrl->InserirTarefa();
     } else {
     echo 'Use o formulário para enviar';
-    }
-
-    //para nexibir as tarefas
-    require_once("../models/TarefasModel.php");
-
-    $userId = $_SESSION['user_id'];
-
-    try{
-        $tarefasPorStatus = Tarefa::ExibirTarefas($userId);
-
-        require_once("../view/Principal.php");
-    } catch (PDOException $ex) {
-        echo "Erro ao carregar tarefas: " . $ex->getMessage();
     }
