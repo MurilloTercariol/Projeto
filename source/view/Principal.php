@@ -17,16 +17,44 @@ include_once("../controller/ExibirController.php"); // Este arquivo deve prepara
     <title>Minha Agenda</title>
 </head>
 <body>
-    <h1>Boa</h1>
-    <a href="../view/Inserir.php">Criar tarefa</a>
+    <a href="../view/Inserir.php">Nova Tarefa</a>
+    <a href="../config/logout.php">Sair</a>
 
-    <h2>Tarefas A Fazer</h2>
-    <div>
+
+    <div class="tarefas-a-fazer">
+        <h2>Tarefas A Fazer</h2>
         <?php if (!empty($tarefasPorStatus['a-fazer'])): ?>
-            <?php foreach ($tarefasPorStatus['a-fazer'] as $tarefa): ?>
-                <h3><?php echo htmlspecialchars($tarefa['titulo']); ?></h3>
-                <p><?php echo htmlspecialchars($tarefa['descricao']); ?></p>
-                <hr> <?php endforeach; ?>
+            
+                <table class="tabela-a-fazer">
+                    <thead>
+                        <tr>
+                            <th scope="col">#ID</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Prazo</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tarefasPorStatus['a-fazer'] as $tarefa): ?>
+                            <tr>
+                                <td scope="row"><?php echo ($tarefa['id']); ?></td>
+                                <td scope="row"><?php echo ($tarefa['titulo']); ?></td>
+                                <td scope="row"><?php echo ($tarefa['descricao']); ?></td>
+                                <td scope="row"><?php echo ($tarefa['prazo']); ?></td>
+                                <td scope="row"><?php echo ($tarefa['status']); ?></td>
+                                <td class="actions">
+                                    <a href="Editar.php?id=<?php echo $tarefa['id']; ?>">Editar <i class="icone-editar"></i></a>
+                                    <a href="../controller/InativarTarefaController.php?id=<?php echo $tarefa['id']; ?>">Excluir</a>
+                                </td>
+                            </tr>
+
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                
+                
+                
         <?php else: ?>
             <p>Nenhuma tarefa "A Fazer" para exibir.</p>
         <?php endif; ?>
