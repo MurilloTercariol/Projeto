@@ -37,7 +37,7 @@
             $tarefasOrganizadas = [
                 'a-fazer'       => [],
                 'em-andamento'  => [],
-                'finalizado'    => []
+                'finalizada'    => []
             ];
 
             foreach($todasAsTarefas as $tarefa) {
@@ -80,17 +80,19 @@
         public static function EditarTarefa(int $id, string $titulo, ?string $descricao, ?string $prazo, string $status): bool
         {
             $pdo = self::conectar();
-            $sql = "UPDATE tarefas SET titulo    = :titulo
-                                       descricao = :descricao
-                                       prazo     = :prazo
-                                       status    = :status
-                                       WHERE id  = :id";
+
+            $sql = "UPDATE tarefas SET 
+                titulo = :titulo, 
+                descricao = :descricao, 
+                prazo = :prazo, 
+                status = :status 
+                WHERE id = :id";
             
             try {
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(':titulo'      , $titulo,  PDO::PARAM_STR);
-                $stmt->bindValue(':descricao'   , $descricao,PDO::PARAM_STR);
-                $stmt->bindValue(':prazo'       , $prazo,   PDO::PARAM_STR);
+                $stmt->bindValue(':descricao'   , $descricao, $descricao === NULL ? PDO::PARAM_NULL : PDO::PARAM_STR);
+                $stmt->bindValue(':prazo'       , $prazo, $prazo === NULL ? PDO::PARAM_NULL : PDO::PARAM_STR);;
                 $stmt->bindValue(':status'      , $status,  PDO::PARAM_STR);
                 $stmt->bindValue(':id'          , $id,      PDO::PARAM_INT);
 

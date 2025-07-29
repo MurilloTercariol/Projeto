@@ -2,6 +2,21 @@
 include('../config/protection.php');
 include('../models/TarefasModel.php');
 echo "<a href='../config/logout.php'>Sair</a>";
+
+if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    header('Location Principal.php');
+    exit();
+}
+
+$tarefa_id = (int)$_GET['id'];
+
+$tarefa = Tarefa::getTarefaPorId($tarefa_id);
+
+if(!$tarefa) {
+    echo "Tarefa não encontrada.";
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -9,38 +24,41 @@ echo "<a href='../config/logout.php'>Sair</a>";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>Editar Tarefa</title>
 </head>
 <body>
     <h1>Editar Tarefa</h1>
-    <div class="inserir-container">
-        <div class="inserir-form">
-            <form method="POST" action="../controller/TarefasController.php">
 
-                <h2>Id da tarefa: <?php echo ($tarefa['id']); ?></h2>
-                <label for="titulo">Título da Tarefa:</label><br>
-                <input type="titulo" name="titulo" id="titulo" required>
-                <br>
+    <form action="../controller/EditarController.php" method="POST">
+        
+        <input type="hidden" name="id" value="<?php echo $tarefa['id']; ?>">
 
-                <label for="descricao">Descrição:</label><br>
-                <textarea  name="descricao" id="descricao" row="4" required></textarea>
-                <br>
-
-                <label for="prazo">Para entregar:</label><br>
-                <input type="date" name="prazo" id="prazo">
-                <br>
-
-                <label for="status">Status:</label><br>
-                    <select id="status" name="status">
-                        <option value="a-fazer">A fazer</option>
-                        <option value="em-andamento">Em andamento</option>
-                        <option value="finalizada">Finalizada</option>
-                    </select>
-
-                <button type="submit">Atualizar</button><br>
-                <a href ="../view/Principal.php">Voltar</a>
-            </form>
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($tarefa['titulo']); ?>" required>
         </div>
-    </div>
+        
+        <div>
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao"><?php echo htmlspecialchars($tarefa['descricao'] ?? ''); ?></textarea>
+        </div>
+        
+        <div>
+            <label for="prazo">Prazo:</label>
+            <input type="date" id="prazo" name="prazo" value="<?php echo htmlspecialchars($tarefa['prazo'] ?? ''); ?>">
+        </div>
+
+        <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="a-fazer" <?php if ($tarefa['status'] == 'a-fazer') echo 'selected'; ?>>A Fazer</option>
+                <option value="em-andamento" <?php if ($tarefa['status'] == 'em-andamento') echo 'selected'; ?>>Em Andamento</option>
+                <option value="finalizada" <?php if ($tarefa['status'] == 'finalizada') echo 'selected'; ?>>Finalizada</option>
+            </select>
+        </div>
+        
+        <a href="Principal.php">Voltar</a>
+        <button type="submit">Salvar Alterações</button>
+    </form>
 </body>
 </html>
