@@ -1,12 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 class Usuario
 {
     private static function conectar(): PDO
     {
         return new PDO(
-            'mysql:host=26.6.89.217;dbname=php;charset=utf8',
-            'murillo', '1234',
+            'mysql:host=26.132.134.2;dbname=php;charset=utf8',
+            'Muka', '1234',
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
     }

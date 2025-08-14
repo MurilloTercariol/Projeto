@@ -1,8 +1,8 @@
 <?php
 
-$host = '26.6.89.217';
+$host = '26.132.134.2';
 $dbname = 'php';
-$username = 'murillo';
+$username = 'Muka';
 $password = '1234';
 $charset = 'utf8mb4';
 

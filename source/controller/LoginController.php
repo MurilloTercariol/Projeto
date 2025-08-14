@@ -1,6 +1,6 @@
 <?php
 
-require('../models/LoginModel.php');
+include('../models/LoginModel.php');
 
 session_start();
 

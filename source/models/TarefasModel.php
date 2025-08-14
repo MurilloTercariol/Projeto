@@ -3,13 +3,13 @@
     class Tarefa
     {
         private static function conectar(): PDO
-        {
-            return new PDO(
-            'mysql:host=26.6.89.217;dbname=php;charset=utf8',
-            'murillo', '1234',
+    {
+        return new PDO(
+            'mysql:host=26.132.134.2;dbname=php;charset=utf8',
+            'Muka', '1234',
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-            );
-        }
+        );
+    }
 
         public static function CriarTarefa($user_id, $titulo, $descricao, $prazo): void {
             $pdo = self::conectar();
